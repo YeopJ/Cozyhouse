@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>상품 리스트</title>
+    <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{ nav.html::navbar }"></div>
+
+<div class="searchbar">
+    <form action="/search" method="POST">
+        <input name="searchText" style="display:inline">
+        <button type="submit">검색</button>
+    </form>
+</div>
+
+<!--th:each는 items의 데이터 개수만큼 반복, 순서대로 테이블 내의 오브젝트들을 i에 삽입.-->
+<div class="card" th:each = "i : ${items}">
+    <img th:src="${i.img != null} ? @{${i.img}} : @{https://placehold.co/300}" alt="상품이미지">
+    <div>
+        <h4><a th:text= "${i.title}" th:href = "@{'/detail/' + ${i.id}}"></a></h4>
+        <p th:text="${#numbers.formatInteger(i.price, 3, 'COMMA')} + '원'"></p>
+        <a th:href="@{'/update/' + ${i.id}}">✏️</a>
+        <!--상품 삭제 기능을 query string으로 구현-->
+        <span th:onclick="fetch('/item?id=[[${i.id}]]', { method: 'DELETE' })
+            .then(r => r.text())
+            .then(() => {
+                location.reload();
+            })
+        ">🗑️</span>
+    </div>
+
+</div>
+<div class="pagination-container">
+    <div class="pagination" th:each="i : ${#numbers.sequence(1, pages)}">
+        <a th:text="${i}" th:href="@{/list/page/{page}(page=${i})}" >페이지</a>
+    </div>
+</div>
+
+
+
+<!--<button class="btn">버튼</button>-->
+
+<script>
+    document.querySelectorAll('.btn')[0].addEventListener('click', function(){
+        fetch('/test1', {
+            method : 'POST',
+            headers : { 'Content-Type' : 'application/json' },
+            body : JSON.stringify({ name : 'data' })
+        })
+    })
+</script>
+
+</body>
+</html>

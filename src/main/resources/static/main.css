@@ -1,0 +1,292 @@
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+.triodion-regular {
+  font-family: "Triodion", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
+.searchbar{
+    margin-bottom: 10px;
+}
+/*list상품카드*/
+.card {
+    margin : auto;
+    display : flex;
+    background-color: white;
+    padding: 10px;
+    transition: background-color 0.3s ease; /* 부드러운 전환 효과 */
+    border-bottom: 1px solid black;
+    font-family: 'Montserrat';
+}
+.card:hover {
+    background-color: #E6E6E6; /* 원하는 배경색으로 변경 */
+}
+.card a{
+    font-weight: 500;
+    color: #333;
+    text-decoration: none;
+}
+.card a:visited{
+    color: inherit; /*방문한 페이지가 보라색으로 표시되는거 방지*/
+}
+.card img {
+    width : 150px;
+    margin-right : 20px;
+}
+
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  background-color: #ffffff;
+  border-bottom: 2px solid #000000;
+  border-width: 100%;
+  box-sizing: border-box;
+}
+
+.logo {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 20px;
+  font-family: "Triodion", serif;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.nav a:hover {
+  color: gray; /*링크에 호버 효과 */
+}
+
+.nav-links {
+    display: flex; /* 링크들을 수평으로 배치 */
+    gap: 30px; /* 링크 사이의 간격 */
+    align-items: center;
+}
+.nav-links a,
+.nav-links span {
+    font-size: 20px;
+    text-decoration: none; /* 밑줄 제거 */
+}
+.nav-links a:hover {
+    color: #gray; /* 링크 호버 시 색상 변경 */
+}
+
+.button-container {
+ display: flex;
+ gap: 10px; /* 버튼 사이 간격 */
+ margin-top: 10px;
+}
+.register-button {
+ padding : 8px 13px;
+ margin-top : 5px;
+ font-weight: bold;
+ border : 1px solid grey;
+ background: white;
+ color: black;
+ vertical-align : middle;
+ text-decoration: none;
+}
+.register-button:hover {
+    background-color: gray;
+    color: white !important ;
+}
+.register-button:visited{
+    color: inherit; /*방문한 페이지가 보라색으로 표시되는거 방지*/
+}
+
+input, button {
+ padding : 8px 13px;
+ margin-top : 5px;
+ font-weight: bold;
+ border-width: 2px;
+ border-color: black;
+ border : 1px solid grey;
+ /*border-radius : 4px;*/
+ vertical-align : middle;
+}
+button {
+ background : white;
+ color : black;
+}
+button:hover {
+    background-color: gray;
+    color: white;
+}
+input {
+ display : block;
+}
+
+.detail {
+    display: flex; /* 가로 정렬 */
+    align-items: flex-start; /* 위쪽 정렬 */
+    gap: 20px; /* 이미지와 텍스트 간격 */
+    max-width: 70%; /* 최대 너비 */
+    margin: auto; /* 중앙 정렬 */
+}
+.detail img{
+  max-width : 70%;
+  display : block;
+  margin : auto;
+}
+.detail-info{
+  flex: 1;
+  margin: auto;
+  font-family: 'Montserrat', sans-serif;
+}
+.detail-title{
+  font-size: 30px;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 10px;
+}
+.detail-price{
+    font-size: 20px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 40px;
+}
+.detail-introduce{
+    font-weight: 300;
+    display: block;
+}
+.detail select,
+.detail input {
+    width: 250px;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid;
+    font-size: 16px;
+    box-sizing: border-box; /* 크기 일관성 유지 */
+}
+.comment-block{
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.comment-title{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black; /* 구분선 */
+}
+/* 개별 댓글 스타일 */
+.comment {
+    padding: 10px 0; /* 위아래 여백 */
+    border-bottom: 1px solid #ddd; /* 구분선 */
+}
+/* 댓글 입력창*/
+.comment-input{
+    padding: 20px 0; /* 위아래 여백 */
+}
+
+/* 전체 폼 중앙 정렬 */
+.login-form {
+    display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    height: 80vh; /* 화면 전체 높이 */
+    gap: 20px; /* 각 요소 간 간격 */
+    padding: 20px; /* 여백 */
+    /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
+    border: 1px solid #ddd; /* 경계선 */
+    /*border-radius: 8px; /* 둥근 모서리 */
+    background-color: #f9f9f9; /* 배경색 */
+}
+.register-form {
+    display: flex;
+    flex-direction: column; /* 수직 정렬 */
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: center; /* 세로 중앙 정렬 */
+    height: 80vh; /* 화면 전체 높이 */
+    gap: 20px; /* 각 요소 간 간격 */
+    padding: 20px; /* 여백 */
+    /*box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
+    border: 1px solid #ddd; /* 경계선 */
+    /*border-radius: 8px; /* 둥근 모서리 */
+    background-color: #f9f9f9; /* 배경색 */
+}
+
+/* 개별 입력 그룹 */
+.form-group {
+    display: flex;
+    flex-direction: column; /* 레이블과 입력 상자 수직 정렬 */
+    width: 100%; /* 입력 상자와 동일한 너비 */
+    max-width: 300px; /* 입력 상자 최대 너비 */
+}
+
+/* 레이블 스타일 */
+.form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px; /* 레이블과 입력 상자 간 간격 */
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+/* 입력 상자 스타일 */
+.form-group input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box; /* 여백 포함 너비 계산 */
+}
+
+/* 버튼 스타일 */
+.submit-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+/* 버튼 호버 효과 */
+.submit-button:hover {
+    background-color: gray;
+    color: white;
+}
+
+/* 페이지네이션 컨테이너 */
+.pagination-container {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+.pagination {
+    display: inline-block;
+    gap: 10px; /* 버튼 간 간격 */
+}
+.pagination a {
+    padding: 10px 15px; /* 버튼 크기 */
+    font-size: 16px; /* 텍스트 크기 */
+    color: black; /* 링크 기본 색상 */
+    text-decoration: none; /* 밑줄 제거 */
+    border: 1px solid; /* 버튼 테두리 */
+    background-color: white; /* 버튼 배경색 */
+}
+.pagination a:hover {
+    background-color: gray; /* 배경색 변경 */
+    color: white; /* 텍스트 색상 변경 */
+}

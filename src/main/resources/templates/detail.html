@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cozyhouse</title>
+    <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{ nav.html::navbar }"></div>
+
+<div class="detail">
+    <div class="detail-img">
+        <img th:src="${id.img != null} ? @{${id.img}} : @{https://placehold.co/300}" alt="상품이미지">
+    </div>
+    <div class="detail-info">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        </style>
+        <!--상품 정보-->
+        <span class="detail-title" th:text="${id.title}">상품 이름</span>
+        <span class="detail-price" th:text="${#numbers.formatInteger(id.price, 3, 'COMMA')} + '원'">상품 가격</span>
+        <span class="detail-introduce">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </span>
+        <!--상품 주문 폼-->
+        <form id="order-form" action="/order" method="post" style="margin-top: 40px;">
+            <p>제품 선택</p>
+            <select name="title" id="title">
+                <option th:value="${id.title}" th:text="${id.title}"></option>
+            </select>
+            <input name="price" th:value="${id.price}" style="display: none;">
+            <p>수량</p>
+            <input type="number" name="count" value="1">
+            <button type="submit" style="margin-top: 10px;">주문하기</button>
+        </form>
+    </div>
+</div>
+
+<!--댓글창-->
+<div class="comment-block">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+    </style>
+    <span class="comment-title">Comments</span>
+    <div class="comment" th:each="comment : ${comments}">
+        <p>
+            <span style="font-weight: bold;" th:text="${comment.displayName}"></span>
+            (<span th:text="${comment.username}"></span>)
+        </p>
+        <p th:text="${comment.comment}"></p>
+    </div>
+    <div class="comment-input">
+        <p style="font-weight: bold;">댓글쓰기</p>
+        <form action="/comment" method="POST" style="display: flex; gap: 10px; align-items: center;">
+            <input name="comment">
+            <input name="id" th:value="${id.id}" style="display: none;">
+            <button>등록</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

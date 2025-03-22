@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>로그인</title>
+    <link href="/main.css" rel="stylesheet">
+</head>
+<body>
+
+<div th:replace="~{ nav.html::navbar }"></div>
+
+<div th:if="${param.error}"><!--param: 현재 url의 query string에 있던 데이터 사용 가능. url파라미터 중 error가 있으면 실행-->
+    <h4>아이디나 비밀번호를 다시 확인하세요</h4>
+</div>
+
+
+<form action="/login" method="POST" class="login-form">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Triodion&display=swap');
+    </style>
+    <h1 class="logo">cozyhouse</h1>
+    <div class="form-group">
+        <label for="username">ID</label>
+        <input id="username" name="username" type="text" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required>
+    </div>
+    <div class="button-container">
+        <button type="submit" class="submit-button">로그인</button>
+        <a href="/register" class="register-button">회원가입</a>
+    </div>
+</form>
+
+
+
+</body>
+</html>
