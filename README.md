@@ -22,7 +22,7 @@ CozyHouse는 Spring Boot 기반의 서버 렌더링 웹 애플리케이션입니
 
 ---
 
-## 🛠 사용 기술 스택
+## 사용 기술 스택
 
 ### Backend & View
 - Java 11+
