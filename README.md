@@ -1,4 +1,4 @@
-# CozyHouse - 가구 쇼핑몰 웹사이트
+# Cozyhouse - 가구 쇼핑몰 웹사이트
 
 CozyHouse는 Spring Boot 기반의 서버 렌더링 웹 애플리케이션입니다.  
 사용자는 다양한 가구 상품을 검색하고, 등록 및 관리할 수 있습니다.
