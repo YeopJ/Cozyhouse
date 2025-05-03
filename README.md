@@ -27,10 +27,13 @@ CozyHouse는 Spring Boot 기반의 서버 렌더링 웹 애플리케이션입니
 ### 메인 페이지
 <img src="images/list.png" width="700px" />
 <img src="images/list2.png" width="700px" />
+
 ### 메인 페이지
 <img src="images/detail.png" width="700px" />
+
 ### 메인 페이지
 <img src="images/login.png" width="700px" />
+
 ### 메인 페이지
 <img src="images/write.png" width="700px" />
 
