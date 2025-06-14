@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cozyhouse</title>
+    <link href="/main.css" rel="stylesheet">
+    <!-- Head 안에 Swiper 스타일 추가 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+</head>
+<body>
+
+<div th:replace="~{ nav.html::navbar }"></div>
+
+<!--
+<div class="main-banner">
+    <img src="/images/banner1.jpg" alt="배너 이미지">
+</div>
+-->
+<!-- 본문에 슬라이더 삽입 -->
+<div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="/images/banner1.jpg" alt="img1" /></div>
+        <div class="swiper-slide"><img src="/images/banner2.jpg" alt="img2" /></div>
+        <div class="swiper-slide"><img src="/images/banner3.jpg" alt="img3" /></div>
+        <div class="swiper-slide"><img src="/images/banner4.jpg" alt="img4" /></div>
+    </div>
+    <!-- 네비게이션 버튼 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+</div>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- 초기화 스크립트 -->
+<script>
+    const swiper = new Swiper(".mySwiper", {
+      slidesPerView: 2,      // 한 화면에 보이는 슬라이드 수
+      spaceBetween: 20,      // 슬라이드 간격 (px)
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
+
+<div class="product-section-header">
+    <h2 class="product-label">Product</h2>
+    <a href="/list/page/1" class="product-more-link">More →</a>
+</div>
+<div class="product-scroll-container">
+    <div class="product-card" th:each="i : ${items}">
+        <img th:src="${i.img != null} ? @{${i.img}} : @{https://placehold.co/300}" alt="상품이미지">
+        <a th:text="${i.title}" class="product-title"></a>
+        <p th:text="${#numbers.formatInteger(i.price, 3, 'COMMA')}"></p>
+    </div>
+</div>
+
+
+</body>
+</html>
