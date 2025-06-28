@@ -28,14 +28,22 @@ CRUD 기능과 검색 기능을 통해 실제 상품 관리 및 조회가 가능
 - **IDE:** IntelliJ IDEA
 - **VCS:** Git, GitHub
 
-## ✨ 주요 기능
+## ✨ 주요 기능 및 구현 방식
 
-- 회원가입, 로그인/로그아웃 (Spring Security)
-- 상품 등록, 조회, 수정, 삭제 (CRUD)
-- 상품 리스트 페이지네이션
-- 상품 검색 기능
-- 상품 이미지 업로드 및 출력
-- Thymeleaf를 활용한 서버사이드 렌더링
+- **회원가입**
+  - Spring Security + BCryptPasswordEncoder로 비밀번호 암호화 후 저장
+- **로그인/로그아웃**
+  - Spring Security의 세션 기반 인증 적용, SecurityConfig로 커스터마이징
+- **상품 등록/수정/삭제 (CRUD), 댓글, 주문기능**
+  - Spring Data JPA의 JpaRepository 사용
+  - Authtentication 객체를 이용하여 로그인 여부 판별
+- **상품 이미지 업로드**
+  - 이미지 파일을 S3에 업로드 후, S3 주소를 DB에 저장
+- **상품 리스트 페이지네이션**
+  - Spring Data JPA의 Pageable 메서드 활용
+- **상품 검색**
+  - Repository에 SQL쿼리로 제목을 조회하는 메서드 정의하여 구현
+
 
 ## 🗂 ERD
 
