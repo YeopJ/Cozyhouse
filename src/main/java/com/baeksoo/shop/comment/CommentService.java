@@ -1,5 +1,7 @@
 package com.baeksoo.shop.comment;
 
+import com.baeksoo.shop.item.Item;
+import com.baeksoo.shop.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class CommentService {
 
     private final CommentRepository commentRepository;
-
+/*
     public void saveComment(String username, String displayName, String comment, Long parentId){
         Comment newcomment = new Comment();
         newcomment.setUsername(username);
@@ -18,4 +20,14 @@ public class CommentService {
 
         commentRepository.save(newcomment);
     }
+*/
+    public void saveComment(Member member, Item item, String commentContent){
+        Comment newComment = new Comment();
+        newComment.setMember(member);     // Member 엔터티 직접 저장
+        newComment.setItem(item);         // Item 엔터티 직접 저장
+        newComment.setComment(commentContent);
+
+        commentRepository.save(newComment);
+    }
+
 }
