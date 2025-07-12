@@ -49,8 +49,8 @@
     <span class="comment-title">Comments</span>
     <div class="comment" th:each="comment : ${comments}">
         <p>
-            <span style="font-weight: bold;" th:text="${comment.displayName}"></span>
-            (<span th:text="${comment.username}"></span>)
+            <span style="font-weight: bold;" th:text="${comment.member.displayName}"></span>
+            (<span th:text="${comment.member.username}"></span>)
         </p>
         <p th:text="${comment.comment}"></p>
     </div>

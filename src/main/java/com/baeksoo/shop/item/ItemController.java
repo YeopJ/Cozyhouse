@@ -88,7 +88,9 @@ public class ItemController {
     String detail(@PathVariable Long id, Model model){
         //optional 타입 쓰는 이유: result가 비어있을 수도 있음
         Optional<Item> result = itemRepository.findById(id);
-        var r = commentRepository.findAllByParentId(id);
+        //var r = commentRepository.findAllByParentId(id);
+        var r = commentRepository.findAllByItem_Id(id);
+
         //result 값이 존재할 때만 작동
         if(result.isPresent()){
             model.addAttribute("id", result.get());

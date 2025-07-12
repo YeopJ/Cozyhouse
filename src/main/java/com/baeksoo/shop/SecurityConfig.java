@@ -32,7 +32,7 @@ public class SecurityConfig {
                 authorize.requestMatchers("/**").permitAll()//문자열 안에 url 작성, permitAll은 모두 로그인하지 않아도 허가
         );
         http.formLogin((formLogin) -> formLogin.loginPage("/login") //폼으로 로그인하겠다는 뜻
-                .defaultSuccessUrl("/list/page/1")
+                .defaultSuccessUrl("/")
                 //실패시 기본적으로 /login?error 로 이동
                 //.failureUrl("/fail")
         );
